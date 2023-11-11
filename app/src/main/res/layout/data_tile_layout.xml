@@ -15,13 +15,29 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
-                android:id="@+id/ImageData"
-                android:layout_width="150sp"
-                android:layout_height="150sp"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_margin="10dp"
-                />
+            <RelativeLayout
+                android:id="@+id/ImageDataLayout"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:id="@+id/ImageData"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_margin="10dp"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/TileProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminateTint="@color/black"
+                    />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/ProductNameTextData"
@@ -31,7 +47,7 @@
                 android:layout_marginTop="5sp"
                 android:layout_marginEnd="5sp"
                 android:layout_marginBottom="5sp"
-                android:layout_toRightOf="@id/ImageData"
+                android:layout_toRightOf="@id/ImageDataLayout"
                 android:fontFamily="@font/audiowide"
                 android:text="product_name"
                 android:textAlignment="center"
@@ -46,7 +62,7 @@
                 android:text="product_type"
                 android:layout_margin="5sp"
                 android:layout_below="@id/ProductNameTextData"
-                android:layout_toRightOf="@id/ImageData"
+                android:layout_toRightOf="@id/ImageDataLayout"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textAlignment="center"
@@ -63,7 +79,7 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textAlignment="center"
-                android:layout_toRightOf="@id/ImageData"
+                android:layout_toRightOf="@id/ImageDataLayout"
                 android:textStyle="bold"
                 />
             <TextView
@@ -77,7 +93,7 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textAlignment="center"
-                android:layout_toRightOf="@id/ImageData"
+                android:layout_toRightOf="@id/ImageDataLayout"
                 android:textStyle="bold"
                 />
 

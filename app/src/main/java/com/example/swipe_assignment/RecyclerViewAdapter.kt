@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
+import java.lang.Exception
 
 class RecyclerViewAdapter(val context: Context,val list:ArrayList<TileModel>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -32,9 +35,24 @@ class RecyclerViewAdapter(val context: Context,val list:ArrayList<TileModel>):Re
 //            .error(context.resources.getDrawable(R.drawable.ic_launcher_background))
 //            .into(holder.imageData)
         if(!tileModel.image.replace("\"","").isEmpty())
-            Picasso.get().load(tileModel.image.replace("\"","")+"").error(context.resources.getDrawable(R.drawable.ic_launcher_background)).into(holder.imageData)
-        else
+            Picasso.get()
+                .load(tileModel.image.replace("\"","")+"")
+//                .error(context.resources.getDrawable(R.drawable.ic_launcher_background))
+                .into(holder.imageData,object:Callback{
+                    override fun onSuccess() {
+                        holder.progress.visibility=View.GONE
+                    }
+
+                    override fun onError(e: Exception?) {
+                        holder.imageData.setImageResource(R.drawable.ic_launcher_background)
+                        holder.progress.visibility=View.GONE
+                    }
+
+                })
+        else{
+            holder.progress.visibility=View.GONE
             holder.imageData.setImageResource(R.drawable.ic_launcher_background)
+        }
         holder.product_name.text=tileModel.product_name
         holder.product_type.text=tileModel.product_type
         holder.price.text=tileModel.price
@@ -47,5 +65,6 @@ class RecyclerViewAdapter(val context: Context,val list:ArrayList<TileModel>):Re
         val product_type=itemView.findViewById<TextView>(R.id.ProductTypeTextData)
         val price=itemView.findViewById<TextView>(R.id.PriceTextData)
         val tax=itemView.findViewById<TextView>(R.id.TaxTextData)
+        val progress=itemView.findViewById<ProgressBar>(R.id.TileProgress)
     }
 }

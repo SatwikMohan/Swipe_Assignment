@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="value"
+            type="com.example.swipe_assignment.AddActivityModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".AddDataActivity">
+
+        <EditText
+            android:id="@+id/ProductNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Product Name"
+            android:textStyle="bold"
+            android:text="@={value.productName}"
+            android:textColor="#FF0000"
+            android:backgroundTintMode="add"
+            android:textAlignment="center"
+            android:textColorHint="#000000"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="15sp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"
+            />
+        <EditText
+            android:id="@+id/ProductTypeEditText"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={value.productName}"
+            android:layout_below="@id/ProductNameEditText"
+            android:layout_margin="15sp"
+            android:backgroundTintMode="add"
+            android:hint="Enter Product Type"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textColorHint="#000000"
+            />
+        <EditText
+            android:id="@+id/PriceEditText"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:text="@={value.productName}"
+            android:backgroundTintMode="add"
+            android:layout_below="@id/ProductTypeEditText"
+            android:hint="Enter Price"
+            android:inputType="number"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textColorHint="#000000"
+            />
+        <EditText
+            android:id="@+id/TaxEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:backgroundTintMode="add"
+            android:layout_below="@id/PriceEditText"
+            android:text="@={value.productName}"
+            android:hint="Enter Tax"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:textColor="#FF0000"
+            android:textColorHint="#000000"
+            />
+
+        <TextView
+            android:id="@+id/ttt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can attach an image if you want to !!"
+            android:layout_below="@id/TaxEditText"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="italic|bold"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Add_Image_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:layout_below="@id/ttt"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/baseline_image_search_24"
+            />
+
+        <TextView
+            android:id="@+id/FileFlag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No image selected"
+            android:layout_below="@id/Add_Image_Button"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="#FF0000"
+            android:textStyle="italic|bold"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Submit_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/baseline_check_24"
+            />
+
+    </RelativeLayout>
+
+</layout>

@@ -7,7 +7,7 @@ You can use the application by running it through the Android Studio on an emula
 You can use the apk in the given drive link to install the application directly into your android mobile phones.
 
 # Dependency used
-Retrofit \n
+Retrofit "\n"
 implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 

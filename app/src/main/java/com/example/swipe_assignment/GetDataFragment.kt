@@ -47,11 +47,13 @@ class GetDataFragment : Fragment() {
         viewModal.getApiData(root.context)
 
         viewModal.arrayList.observe(viewLifecycleOwner, Observer {
-                val adapter=RecyclerViewAdapter(root.context,it)
+            binding.ProgressGetData.visibility=View.GONE
+            val adapter=RecyclerViewAdapter(root.context,it)
                 recyclerView.adapter=adapter
         })
 
         binding.Reload.setOnClickListener {
+            binding.ProgressGetData.visibility=View.VISIBLE
             viewModal.getApiData(root.context)
         }
 
